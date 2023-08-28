@@ -1,0 +1,32 @@
+@import "../variables";
+
+
+@font-face {
+    font-family: brand-thin;
+    src: url("/src/assets/fonts/888-thin.woff");
+}
+
+@font-face {
+    font-family: brand-regular;
+    src: url("/src/assets/fonts/888-regular.woff");
+}
+
+@font-face {
+    font-family: brand-bold;
+    src: url("/src/assets/fonts/888-bold.woff");
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: getColor("background-primary");
+    font-size: 14px;
+    font-family: getTypography("regular"), verdana, sans-serif;
+}

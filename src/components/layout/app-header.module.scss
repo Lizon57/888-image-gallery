@@ -1,0 +1,76 @@
+@import '/src/styles/mixins';
+@import '/src/styles/variables';
+
+.container {
+    @include app-grid-columns;
+    grid-column: 1/-1;
+
+    position: sticky;
+    top: 0;
+    opacity: 0.9;
+
+    border-block-end: 2px solid getColor("seperator-primary");
+    background-color: getColor("background-primary");
+    padding: 1rem 0;
+
+    .content {
+        grid-column: 2/3;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button,
+        input {
+            border: 2px solid getColor("box-secondary");
+            border-radius: 100px;
+            background: getColor("background-primary");
+            letter-spacing: 0.3px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        input {
+            color: getColor("text-secondary");
+            font-weight: 500;
+            padding: 0.8em 1em;
+            width: 30%;
+
+            &:hover {
+                background: getColor("background-secondary");
+                color: getColor("text-dark");
+            }
+
+            &::placeholder {
+                opacity: 0.9;
+            }
+
+            &::-webkit-search-cancel-button {
+                cursor: pointer;
+            }
+        }
+
+        .actions_container {
+            display: flex;
+            gap: 1.5rem;
+
+            button {
+                display: flex;
+                align-items: center;
+                gap: .5em;
+
+                cursor: pointer;
+                color: getColor("box-secondary");
+                padding: 0.8em 1.5em;
+
+                &:hover {
+                    background: getColor("background-secondary");
+                    color: getColor("text-dark");
+                }
+
+                svg {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}

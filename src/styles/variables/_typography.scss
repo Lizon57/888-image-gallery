@@ -1,0 +1,18 @@
+@use "sass:map";
+
+
+$typography: (
+    "regular": brand-regular,
+);
+
+@function getTypography($name) {
+    $result: map.get($typography, $name);
+
+    @if ($result) {
+        @return $result;
+    }
+
+    @else {
+        @return verdana;
+    }
+}

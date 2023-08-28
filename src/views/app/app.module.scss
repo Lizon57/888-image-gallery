@@ -1,0 +1,5 @@
+@import '/src/styles/mixins/layout';
+
+.appLayout {
+    @include app-grid-columns;
+}

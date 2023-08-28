@@ -28,6 +28,6 @@
     },
   },
   
-  "include": ["src", "vite-env.d.ts"],
+  "include": ["src", "vite-env.d.ts", "configuration/index.d.ts", "index.d.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
