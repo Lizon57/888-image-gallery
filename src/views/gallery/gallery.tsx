@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
 import { Loading } from '@/components/common/loading/loading'
 import { LargeMessage } from '@/components/common/large-message/large-message'
+import { PhotoList } from '@/components/gallery/photo-list/photo-list'
 
 
 export function Gallery() {
@@ -25,9 +26,5 @@ export function Gallery() {
         emoji='😔'
     />
 
-    return (
-        <>
-            Gallery
-        </>
-    )
+    return <main><PhotoList /></main>
 }
