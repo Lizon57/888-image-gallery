@@ -5,7 +5,7 @@ export function AppHeader() {
     return (
         <header className={styles.container}>
             <div className={styles.content}>
-                <input type="search" placeholder="Type to search photos..." title="Type search term" />
+                <input type="search" placeholder="Type to search photos..." title="Type search term" autoFocus />
 
                 <div className={styles.actions_container}>
                     <button title="Save results"><BiDownload />Save</button>

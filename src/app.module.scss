@@ -1,5 +1,9 @@
 @import '/src/styles/mixins/layout';
 
-.appLayout {
+.app_layout {
     @include app-grid-columns;
+
+    .page_container {
+        grid-column: 2/3;
+    }
 }

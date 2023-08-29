@@ -27,6 +27,7 @@ html {
 
 body {
     background-color: getColor("background-primary");
+    color: getColor("text-primary");
     font-size: 14px;
     font-family: getTypography("regular"), verdana, sans-serif;
 }

@@ -2,7 +2,9 @@
 
 
 $typography: (
-    "regular": brand-regular,
+    "thin": brand-regular,
+    "regular": brand-thin,
+    "bold": brand-bold,
 );
 
 @function getTypography($name) {
