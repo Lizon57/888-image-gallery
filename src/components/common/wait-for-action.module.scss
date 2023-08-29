@@ -24,6 +24,7 @@
     }
 
     .title {
+        color: getColor("text-title");
         font-size: 2rem;
         font-family: getTypography("bold");
     }

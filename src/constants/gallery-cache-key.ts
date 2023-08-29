@@ -1,0 +1,1 @@
+export const GALLERY_CACHE_KEY = 'galleryCacheDB'

@@ -1,5 +1,4 @@
 import { ChangeEvent } from 'react'
-import { useDebouncedCallback } from 'use-debounce'
 import { BiDownload, BiUpload } from 'react-icons/bi'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
@@ -14,8 +13,6 @@ export function AppHeader() {
         const { value } = ev.target
         setSearchTerm(value)
     }
-    const onInputChangeDebounce = useDebouncedCallback(onInputChange, 300)
-
 
 
     return (
@@ -26,7 +23,7 @@ export function AppHeader() {
                     placeholder="Type to search photos..."
                     title="Type search term"
                     autoFocus
-                    onChange={onInputChangeDebounce}
+                    onChange={onInputChange}
                 />
 
                 <div className={styles.actions_container}>
