@@ -1,14 +1,36 @@
-import styles from './app-header.module.scss'
+import { ChangeEvent } from 'react'
+import { useDebouncedCallback } from 'use-debounce'
 import { BiDownload, BiUpload } from 'react-icons/bi'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/store/store'
+import { setSearchTerm } from '@/store/actions/app.action'
+import styles from './app-header.module.scss'
+
 
 export function AppHeader() {
+    const { searchTerm } = useSelector((state: RootState) => state.appModule)
+
+    const onInputChange = (ev: ChangeEvent<HTMLInputElement>) => {
+        const { value } = ev.target
+        setSearchTerm(value)
+    }
+    const onInputChangeDebounce = useDebouncedCallback(onInputChange, 300)
+
+
+
     return (
         <header className={styles.container}>
             <div className={styles.content}>
-                <input type="search" placeholder="Type to search photos..." title="Type search term" autoFocus />
+                <input
+                    type="search"
+                    placeholder="Type to search photos..."
+                    title="Type search term"
+                    autoFocus
+                    onChange={onInputChangeDebounce}
+                />
 
                 <div className={styles.actions_container}>
-                    <button title="Save results"><BiDownload />Save</button>
+                    {searchTerm && <button title="Save results"><BiDownload />Save</button>}
                     <button title="Browse saved results"><BiUpload />Restore</button>
                 </div>
             </div>
