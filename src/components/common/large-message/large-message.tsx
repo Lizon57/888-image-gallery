@@ -1,12 +1,10 @@
-import styles from './wait-for-action.module.scss'
+import styles from './large-message.module.scss'
 
 
-export function WaitForAction({ title, text }: Props) {
+export function LargeMessage({ title, text, emoji }: Props) {
     return (
         <section className={styles.container}>
-            <span>
-                👀
-            </span>
+            {emoji && <span>{emoji}</span>}
 
             <p className={styles.title}>{title}</p>
             <p className={styles.text}>{text}</p>
@@ -17,5 +15,6 @@ export function WaitForAction({ title, text }: Props) {
 
 type Props = {
     title: string
-    text?: string
+    text: string
+    emoji?: string
 }

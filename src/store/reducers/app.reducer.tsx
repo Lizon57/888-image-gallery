@@ -4,16 +4,16 @@ import { ReduxAction } from "@/models/redux-action"
 
 const initialState: AppReducer = {
     searchTerm: '',
-    photos: null,
+    photos: [],
     isLoading: false,
-    error: ''
+    error: 0
 }
 
 
 export const appReducer = (state = initialState, action: ReduxAction) => {
     switch (action.type) {
         case 'setSearchTerm':
-            return { ...state, searchTerm: action.searchTerm }
+            return { ...state, searchTerm: action.searchTerm, error: 0, photos: null }
 
         case 'setPhotos':
             return { ...state, photos: action.photos }
@@ -34,6 +34,6 @@ type AppReducer = {
     searchTerm: string
     photos: PhotoEntity[] | null
     isLoading: boolean
-    error: string
+    error: number
 }
 

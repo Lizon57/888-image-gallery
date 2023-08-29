@@ -1,0 +1,49 @@
+@import '/src/styles/variables/';
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .animation {
+        >span {
+            display: inline-block;
+            border-radius: 50vw;
+            background-color: getColor("seperator-primary");
+            width: 2em;
+            height: 2em;
+            animation: bounce 1.5s infinite ease-in-out both;
+
+            &:nth-child(1) {
+                animation-delay: -0.32s;
+            }
+
+            &:nth-child(2) {
+                animation-delay: -0.16s;
+            }
+
+            @keyframes bounce {
+
+                0%,
+                80%,
+                100% {
+                    transform: scale(0);
+                }
+
+                40% {
+                    transform: scale(1.0);
+                }
+            }
+        }
+    }
+
+    p {
+        font-family: getTypography("thin");
+        line-height: 1.5em;
+        letter-spacing: 1px;
+        text-align: center;
+        margin: 1rem 0 0;
+        max-width: 50ch;
+    }
+}
