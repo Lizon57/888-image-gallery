@@ -1,6 +1,7 @@
 import { ReactElement, useRef } from 'react'
 import uuid from 'react-uuid'
 import { useOnClickOutside } from '@/hooks/use-onclick-outside'
+import { DropdownItem } from '@/models/dropdown-item'
 import styles from './dropdown.module.scss'
 
 
@@ -32,7 +33,7 @@ export function Dropdown({ controller, items }: Props) {
                     className={styles.item}
                     onClick={() => onItemClick(item.onClick)}
                 >
-                    {item.title}
+                    {item.key}
                 </button>)}
             </div>
         </div>
@@ -45,8 +46,5 @@ type Props = {
         title: string
         display: ReactElement | string
     }
-    items: {
-        title: string,
-        onClick: () => void
-    }[]
+    items: DropdownItem[]
 }

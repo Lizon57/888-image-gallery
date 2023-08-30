@@ -1,0 +1,15 @@
+@import '/src/styles/variables/';
+
+
+.container {
+    position: fixed;
+    top: 6rem;
+    left: 1rem;
+
+    border-radius: 100px;
+    background-color: getColor("background-secondary");
+    color: getColor("text-secondary");
+    font-family: getTypography("thin");
+    padding: 1em;
+    min-width: 10rem;
+}

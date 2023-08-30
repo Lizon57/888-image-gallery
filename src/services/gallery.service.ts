@@ -1,5 +1,5 @@
 import { VALID_CACHE_TIME } from "@/constants/valid-cache-time"
-import { GALLERY_CACHE_KEY } from "@/constants/gallery-cache-key"
+import { GALLERY_CACHE_KEY } from "@/constants/local-storage-keys"
 import { IMAGE_PER_PAGE_COUNT } from "@/constants/image-per-page-count"
 import { localStorageService } from "./local-storage.service"
 import { httpService } from "./http.service"

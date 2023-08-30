@@ -1,0 +1,10 @@
+@import '/src/styles/variables/';
+
+
+.button {
+    min-width: max-content;
+
+    &.bookmarked svg {
+        color: getColor("text-secondary");
+    }
+}
