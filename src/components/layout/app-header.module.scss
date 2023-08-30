@@ -23,23 +23,12 @@
 
         button,
         input {
-            border: 2px solid getColor("box-secondary");
-            border-radius: 100px;
-            background: getColor("background-primary");
-            letter-spacing: 0.3px;
-            transition: all 0.3s ease-in-out;
+            @include primary-control;
         }
 
-        input {
-            color: getColor("text-secondary");
+        input:not([type="checkbox"]) {
             font-weight: 500;
-            padding: 0.8em 1em;
             width: 15rem;
-
-            &:hover {
-                background: getColor("background-secondary");
-                color: getColor("text-dark");
-            }
 
             &:focus-within {
                 width: 25rem;
@@ -48,33 +37,14 @@
             &::placeholder {
                 opacity: 0.9;
             }
-
-            &::-webkit-search-cancel-button {
-                cursor: pointer;
-            }
         }
 
         .actions_container {
             display: flex;
             gap: 1.5rem;
 
-            button {
-                display: flex;
-                align-items: center;
-                gap: .5em;
-
-                cursor: pointer;
-                color: getColor("box-secondary");
-                padding: 0.8em 1.5em;
-
-                &:hover {
-                    background: getColor("background-secondary");
-                    color: getColor("text-dark");
-                }
-
-                svg {
-                    opacity: 0.7;
-                }
+            button svg {
+                opacity: 0.7;
             }
         }
     }

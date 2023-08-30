@@ -1,0 +1,75 @@
+@import '/src/styles/variables/';
+@import '/src/styles/mixins/';
+
+
+.container {
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    button {
+        @include primary-control;
+    }
+
+    input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        opacity: 0;
+        transition: all 0.3s ease-in-out;
+
+        cursor: pointer;
+        width: 100%;
+        height: 100%;
+
+        &:hover~.controller {
+            background-color: getColor("box-secondary");
+            color: getColor("text-dark");
+        }
+
+        &:checked~.content_container {
+            max-height: 15rem;
+            overflow: scroll;
+            box-shadow: 0 0 5px 1px getColor("box-secondary");
+        }
+
+        &:not(:checked)~.content_container {
+            max-height: 0;
+            overflow: hidden;
+        }
+    }
+
+    .content_container {
+        position: absolute;
+        right: 0;
+        top: 5rem;
+        z-index: -1;
+
+        display: flex;
+        flex-direction: column;
+
+        border-radius: 20px;
+        background-color: getColor("background-secondary");
+        min-width: max-content;
+        transition: all 0.3s ease-in-out;
+
+        .item {
+            @include primary-control;
+            border-radius: 0;
+            border: none;
+            background-color: transparent;
+            color: getColor("text-dark");
+            text-align: left;
+            min-width: 10rem;
+
+            &:hover {
+                background-color: getColor("box-secondary");
+            }
+
+            &:not(:last-of-type) {
+                border-block-end: 1px dashed rgba(getColor("seperator-primary"), 0.8);
+            }
+        }
+    }
+}

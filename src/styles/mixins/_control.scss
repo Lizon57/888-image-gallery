@@ -1,0 +1,22 @@
+@import '/src/styles/variables/';
+
+
+@mixin primary-control {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+
+    cursor: pointer;
+    border: 2px solid getColor("box-secondary");
+    border-radius: 100px;
+    background: getColor("background-primary");
+    color: getColor("text-primary");
+    letter-spacing: 0.3px;
+    padding: 1em 1em;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: getColor("box-secondary");
+        color: getColor("text-dark");
+    }
+}
