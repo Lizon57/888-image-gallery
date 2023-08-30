@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { BsBookmarkHeartFill } from 'react-icons/bs'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
@@ -10,8 +10,11 @@ import classNames from 'classnames'
 
 export function BookmarkButton() {
     const { searchTerm } = useSelector((state: RootState) => state.appModule)
-    const { photos } = useSelector((state: RootState) => state.appModule)
     const [isBookmarked, setIsBookmarked] = useState(bookmarkService.isBookmarkExist(searchTerm))
+
+    useEffect(() => {
+        setIsBookmarked(bookmarkService.isBookmarkExist(searchTerm))
+    }, [searchTerm])
 
 
     const toggleBookmark = () => {
@@ -27,6 +30,7 @@ export function BookmarkButton() {
 
         updateBookmark()
     }
+
 
     const bookmarkedClassname = styles.bookmarked
 
