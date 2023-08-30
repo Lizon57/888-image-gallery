@@ -18,6 +18,10 @@ export const appReducer = (state = initialState, action: ReduxAction) => {
         case 'setPhotos':
             return { ...state, photos: action.photos }
 
+        case 'addPhotos':
+            if (!state.photos) return { ...state, photos: action.photos }
+            return { ...state, photos: [...state.photos, ...action.photos] }
+
         case 'setIsLoading':
             return { ...state, isLoading: action.isLoading }
 
