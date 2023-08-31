@@ -1,27 +1,58 @@
-# React + TypeScript + Vite
+# Image gallery
+his image gallery app is a home assignment for an appealing job. The app allows clients to search for images from Flickr's API and view them in a gallery. The gallery has infinite scroll behavior, meaning it displays new images as the client scrolls to the bottom of the page. Additionally, clients can save and browse results from previous search terms.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
+### Gallery
+- Displays related images using Flickr's API.
+- Loads an additional (50) images each time the client scrolls to the bottom of the page.
 
-Currently, two official plugins are available:
+### Cache
+- The results from Flickr's API are saved in the client's local storage to prevent unnecessary AJAX calls.
+- The cache is relevant for only one day. If the cached data becomes irrelevant, a new AJAX call will be made.
+- When a new AJAX call fetches more images for an existing cache, the new data will be added to the cache and will receive a re-validation signature.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Bookmarks
+- After the gallery has loaded, the client can save (and remove) specific galleries for later easy browsing.
 
-## Expanding the ESLint configuration
+## Stack Used
+- Vite 4
+- React 18
+- React Redux 8
+- TypeScript 5
+- Module SCSS
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Alternative Libraries
+- Axios
+- classnames
+- dimpurify
+- normalize.css
+- react-icons
+- react-uuid
+- yet-another-react-lightbox
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+## Scripts
+To run the app locally, follow these steps:
+1. **Clone the repository**:
+```bash
+git clone https://github.com/Lizon57/888-image-gallery.git
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+2. **Set up the environment**:
+Contact repo's owner to obtain the API key for Flickr, or create one by yourself (at [https://www.flickr.com/services/developer/api/](https://www.flickr.com/services/developer/api/)) Once you have the API key, create a file named .env in the root of the project and add the following line to it:
+```bash
+VITE_APP_AWEATHER_API_KEY=XXXXXX
+```
+(Replace **XXXXXX** with the actual API key provided to you.)
+
+3. **Install dependencies**:
+Make sure you have Node.js and npm (Node Package Manager) installed on your machine. Open the terminal, navigate to the project's root folder, and run the following command to install the required dependencies:
+```bash
+npm install
+```
+
+## Run the app:
+After installing the dependencies, run the following command to start the development server:
+```bash
+npm start
+```
+This will compile the code and launch the app in your default web browser at http://localhost:5173.
