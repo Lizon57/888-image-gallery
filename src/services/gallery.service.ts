@@ -27,7 +27,6 @@ async function fetchData(searchTerm: string, page = 0) {
 
             const result = { cachedAt: Date.now(), photos: data.photos.photo }
             if (page) result.photos = [...cachedData.photos, ...data.photos.photo]
-            console.log(result.photos)
 
             localStorageService.saveToMap(GALLERY_CACHE_KEY, searchTerm, result)
             return data.photos.photo

@@ -1,4 +1,4 @@
-![Image gallery app preview](https://res-console.cloudinary.com/dyxf7nmbe/thumbnails/v1/image/upload/v1693474902/aW1hZ2UtZ2FsbGVyeS1tdWx0aXNjcmVlbi1wcmV2aWV3X2Jsa3Nqag==/preview)
+![Image gallery app preview](https://res.cloudinary.com/dyxf7nmbe/image/upload/v1693474902/image-gallery-multiscreen-preview_blksjj.png)
 # Image gallery
 his image gallery app is a home assignment for an appealing job. The app allows clients to search for images from Flickr's API and view them in a gallery. The gallery has infinite scroll behavior, meaning it displays new images as the client scrolls to the bottom of the page. Additionally, clients can save and browse results from previous search terms.
 
