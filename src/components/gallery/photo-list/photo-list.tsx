@@ -18,7 +18,7 @@ import styles from './photo-list.module.scss'
 
 
 export function PhotoList() {
-    const { searchTerm, photos, isLoading } = useSelector((state: RootState) => state.appModule)
+    const { searchTerm, photos } = useSelector((state: RootState) => state.appModule)
     const [isLightboxOpen, setIsLightboxOpen] = useState(false)
     const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
     const [isFetchData, setIsFetchData] = useState(false)
