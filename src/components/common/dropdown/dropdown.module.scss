@@ -2,10 +2,9 @@
 @import '/src/styles/mixins/';
 
 
-.container {
+.dropdown_container {
     position: relative;
     height: 100%;
-    width: 100%;
 
     button {
         @include primary-control;
@@ -43,7 +42,6 @@
     .content_container {
         position: absolute;
         right: 0;
-        top: 5rem;
         z-index: -1;
 
         display: flex;
@@ -53,6 +51,20 @@
         background-color: getColor("background-secondary");
         min-width: max-content;
         transition: all 0.3s ease-in-out;
+
+        @include viewport-wide-up-to (getViewport("medium")) {
+            &.open_to_right {
+                left: 0;
+            }
+        }
+
+        @include viewport-wide-up-to (getViewport("small")) {
+            top: 2.5rem;
+        }
+
+        @include viewport-wide-start-from (getViewport("small"), false) {
+            top: 3.5rem;
+        }
 
         .item {
             @include primary-control;

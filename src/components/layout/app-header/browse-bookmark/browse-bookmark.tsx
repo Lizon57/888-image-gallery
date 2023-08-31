@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import { GiBookmarklet } from 'react-icons/gi'
+import { useSelector } from 'react-redux'
+import { RootState } from '@/store/store'
 import { setSearchTerm } from '@/store/actions/app.action'
 import { bookmarkService } from '@/services/bookmark.service'
 import { DropdownItem } from '@/models/dropdown-item'
@@ -15,6 +17,7 @@ const getFormattedBookmarks = (bookmarks: string[]) => {
 }
 
 export function BrowseBookmark() {
+    const { searchTerm } = useSelector((state: RootState) => state.appModule)
     const [bookmarks, setBookmarks] = useState<DropdownItem[]>([])
 
     const updateBookmarks = () => {
@@ -39,9 +42,10 @@ export function BrowseBookmark() {
         <Dropdown
             controller={{
                 title: 'Browse saved results',
-                display: <><GiBookmarklet />Browse bookmarks</>
+                display: <><GiBookmarklet />Browse</>
             }}
             items={bookmarks}
+            isOpenToRight={!searchTerm}
         />
     )
 }

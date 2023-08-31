@@ -1,10 +1,19 @@
-@import '/src/styles/mixins/layout';
+@import '/src/styles/mixins';
+@import '/src/styles/variables';
+
 
 .app_layout {
     @include app-grid-columns;
 
     .page_container {
         grid-column: 2/3;
-        margin-block-start: 2rem;
+
+        @include viewport-wide-up-to (getViewport("small")) {
+            margin-block-start: 1rem;
+        }
+
+        @include viewport-wide-start-from (getViewport("small"), false) {
+            margin-block-start: 1.5rem;
+        }
     }
 }

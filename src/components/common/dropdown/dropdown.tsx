@@ -1,11 +1,12 @@
 import { ReactElement, useRef } from 'react'
+import classNames from 'classnames'
 import uuid from 'react-uuid'
 import { useOnClickOutside } from '@/hooks/use-onclick-outside'
 import { DropdownItem } from '@/models/dropdown-item'
 import styles from './dropdown.module.scss'
 
 
-export function Dropdown({ controller, items }: Props) {
+export function Dropdown({ controller, items, isOpenToRight }: Props) {
     const checkboxRef = useRef<HTMLInputElement>(null)
 
     const closeDropdownContent = () => {
@@ -21,13 +22,15 @@ export function Dropdown({ controller, items }: Props) {
         closeDropdownContent()
     }
 
+    const openToRightClassname = styles.open_to_right
+
 
     return (
-        <div className={styles.container}>
+        <div className={styles.dropdown_container}>
             <input type="checkbox" className={styles.checkbox} ref={checkboxRef} />
             <button title={controller.title} className={styles.controller}>{controller.display}</button>
 
-            <div className={styles.content_container}>
+            <div className={classNames(styles.content_container, { [openToRightClassname]: isOpenToRight })}>
                 {items.map(item => <button
                     key={uuid()}
                     className={styles.item}
@@ -47,4 +50,5 @@ type Props = {
         display: ReactElement | string
     }
     items: DropdownItem[]
+    isOpenToRight: boolean
 }

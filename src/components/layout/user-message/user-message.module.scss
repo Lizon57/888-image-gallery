@@ -1,9 +1,9 @@
 @import '/src/styles/variables/';
+@import '/src/styles/mixins/';
 
 
 .container {
     position: fixed;
-    top: 6rem;
     left: 1rem;
 
     border-radius: 100px;
@@ -12,4 +12,16 @@
     font-family: getTypography("thin");
     padding: 1em;
     min-width: 10rem;
+
+    @include viewport-wide-up-to (getViewport("small")) {
+        top: 7.5rem;
+    }
+
+    @include viewport-wide-start-from (getViewport("small"), false) {
+        top: 10rem;
+    }
+
+    @include viewport-wide-start-from (getViewport("medium"), false) {
+        top: 6rem;
+    }
 }

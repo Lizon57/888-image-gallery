@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
+import classNames from 'classnames'
 import { BsBookmarkHeartFill } from 'react-icons/bs'
 import { useSelector } from 'react-redux'
 import { RootState } from '@/store/store'
 import { bookmarkService } from '@/services/bookmark.service'
 import { eventBus, updateBookmark } from "@/services/event-bus.service"
 import styles from './bookmark-button.module.scss'
-import classNames from 'classnames'
 
 
 export function BookmarkButton() {
@@ -41,7 +41,10 @@ export function BookmarkButton() {
             onClick={toggleBookmark}
         >
             <BsBookmarkHeartFill />
-            {isBookmarked ? 'Remove bookmark' : 'Add to bookmarks'}
+
+            <span>
+                {isBookmarked ? 'Forget' : 'Remember'}
+            </span>
         </button>
     )
 }
